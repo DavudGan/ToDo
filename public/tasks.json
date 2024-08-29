@@ -1,0 +1,280 @@
+// спасибо ChatGpt за данные)
+[
+  {
+    "id": "1",
+    "title": "Проектирование веб-сайта",
+    "description": "Создание макета и архитектуры веб-сайта.",
+    "isComplete": false,
+    "isExpanded": false,
+    "subtasks": [
+      {
+        "id": "1.1",
+        "title": "Исследование целевой аудитории",
+        "description": "Проведение анализа целевой аудитории и их потребностей.",
+        "isComplete": false,
+        "isExpanded": false,
+        "subtasks": [
+          {
+            "id": "1.1.1",
+            "title": "Опрос пользователей",
+            "description": "Создание и проведение опроса среди пользователей.",
+            "isComplete": false,
+            "isExpanded": false,
+            "subtasks": []
+          },
+          {
+            "id": "1.1.2",
+            "title": "Анализ результатов опроса",
+            "description": "Обработка и анализ полученных данных от опроса.",
+            "isComplete": false,
+            "isExpanded": false,
+            "subtasks": []
+          }
+        ]
+      },
+      {
+        "id": "1.2",
+        "title": "Создание прототипа",
+        "description": "Разработка интерактивного прототипа для тестирования.",
+        "isComplete": false,
+        "isExpanded": false,
+        "subtasks": [
+          {
+            "id": "1.2.1",
+            "title": "Разработка wireframe",
+            "description": "Создание базового каркаса страниц.",
+            "isComplete": false,
+            "isExpanded": false,
+            "subtasks": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "title": "Разработка мобильного приложения",
+    "description": "Создание приложения для мобильных устройств.",
+    "isComplete": false,
+    "isExpanded": false,
+    "subtasks": [
+      {
+        "id": "2.1",
+        "title": "Определение функциональности",
+        "description": "Определение ключевых функций и возможностей приложения.",
+        "isComplete": false,
+        "isExpanded": false,
+        "subtasks": [
+          {
+            "id": "2.1.1",
+            "title": "Создание спецификации",
+            "description": "Разработка документации по функциональности приложения.",
+            "isComplete": false,
+            "isExpanded": false,
+            "subtasks": []
+          }
+        ]
+      },
+      {
+        "id": "2.2",
+        "title": "Дизайн пользовательского интерфейса",
+        "description": "Разработка визуального стиля и макетов экранов приложения.",
+        "isComplete": false,
+        "isExpanded": false,
+        "subtasks": []
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "title": "Оптимизация базы данных",
+    "description": "Улучшение производительности базы данных.",
+    "isComplete": false,
+    "isExpanded": false,
+    "subtasks": [
+      {
+        "id": "3.1",
+        "title": "Анализ производительности",
+        "description": "Проведение анализа текущей производительности базы данных.",
+        "isComplete": false,
+        "isExpanded": false,
+        "subtasks": []
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "title": "Маркетинговая кампания",
+    "description": "Запуск рекламной кампании для нового продукта.",
+    "isComplete": false,
+    "isExpanded": false,
+    "subtasks": [
+      {
+        "id": "4.1",
+        "title": "Разработка стратегии",
+        "description": "Определение целей и методов рекламной кампании.",
+        "isComplete": false,
+        "isExpanded": false,
+        "subtasks": []
+      },
+      {
+        "id": "4.2",
+        "title": "Создание рекламных материалов",
+        "description": "Производство баннеров, видео и текстов для кампании.",
+        "isComplete": false,
+        "isExpanded": false,
+        "subtasks": []
+      },
+      {
+        "id": "4.3",
+        "title": "Запуск кампании",
+        "description": "Публикация и мониторинг рекламных материалов на платформах.",
+        "isComplete": false,
+        "isExpanded": false,
+        "subtasks": []
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "title": "Тестирование программного обеспечения",
+    "description": "Проведение тестирования нового релиза ПО.",
+    "isComplete": false,
+    "isExpanded": false,
+    "subtasks": [
+      {
+        "id": "5.1",
+        "title": "Подготовка тестовых сценариев",
+        "description": "Разработка и утверждение тест-кейсов.",
+        "isComplete": false,
+        "isExpanded": false,
+        "subtasks": [
+          {
+            "id": "5.1.1",
+            "title": "Тестирование функциональности",
+            "description": "Проверка работы основных функций ПО.",
+            "isComplete": false,
+            "isExpanded": false,
+            "subtasks": []
+          },
+          {
+            "id": "5.1.2",
+            "title": "Регрессионное тестирование",
+            "description": "Проверка работы старого функционала после изменений.",
+            "isComplete": false,
+            "isExpanded": false,
+            "subtasks": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "title": "Обучение команды",
+    "description": "Проведение тренингов для сотрудников по новым инструментам.",
+    "isComplete": false,
+    "isExpanded": false,
+    "subtasks": [
+      {
+        "id": "6.1",
+        "title": "Подготовка учебных материалов",
+        "description": "Создание презентаций и учебных пособий.",
+        "isComplete": false,
+        "isExpanded": false,
+        "subtasks": []
+      },
+      {
+        "id": "6.2",
+        "title": "Проведение тренингов",
+        "description": "Организация и проведение занятий для команды.",
+        "isComplete": false,
+        "isExpanded": false,
+        "subtasks": []
+      }
+    ]
+  },
+  {
+    "id": "7",
+    "title": "Планирование бюджета",
+    "description": "Разработка бюджета на следующий финансовый год.",
+    "isComplete": false,
+    "isExpanded": false,
+    "subtasks": [
+      {
+        "id": "7.1",
+        "title": "Анализ текущих расходов",
+        "description": "Проверка и анализ текущих затрат компании.",
+        "isComplete": false,
+        "isExpanded": false,
+        "subtasks": []
+      },
+      {
+        "id": "7.2",
+        "title": "Прогнозирование доходов",
+        "description": "Оценка ожидаемых доходов на следующий год.",
+        "isComplete": false,
+        "isExpanded": false,
+        "subtasks": []
+      },
+      {
+        "id": "7.3",
+        "title": "Определение ключевых расходов",
+        "description": "Определение основных статей затрат и инвестиционных планов.",
+        "isComplete": false,
+        "isExpanded": false,
+        "subtasks": []
+      }
+    ]
+  },
+  {
+    "id": "8",
+    "title": "Проведение инвентаризации",
+    "description": "Проверка и учет всех товаров на складе.",
+    "isComplete": false,
+    "isExpanded": false,
+    "subtasks": [
+      {
+        "id": "8.1",
+        "title": "Подготовка к инвентаризации",
+        "description": "Создание списков и подготовка оборудования.",
+        "isComplete": false,
+        "isExpanded": false,
+        "subtasks": []
+      },
+      {
+        "id": "8.2",
+        "title": "Проверка наличия товаров",
+        "description": "Проверка наличия и состояния товаров на складе.",
+        "isComplete": false,
+        "isExpanded": false,
+        "subtasks": []
+      }
+    ]
+  },
+  {
+    "id": "9",
+    "title": "Обновление контента веб-сайта",
+    "description": "Обновление информации и материалов на корпоративном сайте.",
+    "isComplete": false,
+    "isExpanded": false,
+    "subtasks": [
+      {
+        "id": "9.1",
+        "title": "Создание нового контента",
+        "description": "Написание и редактирование текстов для сайта.",
+        "isComplete": false,
+        "isExpanded": false,
+        "subtasks": []
+      },
+      {
+        "id": "9.2",
+        "title": "Публикация контента",
+        "description": "Размещение нового контента на сайте.",
+        "isComplete": false,
+        "isExpanded": false,
+        "subtasks": []
+      }
+    ]
+  }
+]
