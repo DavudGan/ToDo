@@ -3,7 +3,6 @@ import Modal from "@mui/material/Modal";
 import Typography from "@mui/material/Typography";
 import AddIcon from "@mui/icons-material/Add";
 import IconButton from "@mui/material/IconButton";
-import "./ModalScss.scss";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
