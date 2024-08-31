@@ -1,4 +1,4 @@
-import { makeAutoObservable } from "mobx";
+import { makeAutoObservable, autorun } from "mobx";
 
 export class Task {
   id: string; // Уникальный идентификатор задачи
@@ -30,11 +30,13 @@ export class Task {
 
   toggleCompletion() {
     this.isComplete = !this.isComplete;
-    this.subtasks.forEach(subtask => subtask.updateCompletion(this.isComplete));
+    this.subtasks.forEach((subtask) =>
+      subtask.updateCompletion(this.isComplete)
+    );
   }
   updateCompletion(status: boolean) {
     this.isComplete = status;
-    this.subtasks.forEach(subtask => subtask.updateCompletion(status));
+    this.subtasks.forEach((subtask) => subtask.updateCompletion(status));
   }
 }
 
@@ -47,36 +49,40 @@ class TaskStore {
 
     // Загрузка задач из файла при инициализации хранилища
     this.loadTasksFromFile();
+    autorun(() => {
+      const tasksSnapshot = JSON.stringify(this.tasks);
+      localStorage.setItem("tasksData", tasksSnapshot);
+    });
   }
 
   // Метод загрузки задач из JSON файла и сохранение их в localStorage.
   loadTasksFromFile() {
     const tasksData = localStorage.getItem("tasksData");
-    if(tasksData){
-      this.parseTaskData(tasksData)
+    if (tasksData) {
+      this.parseTaskData(tasksData);
     } else {
-      console.log('Из файла')
+      console.log("Из файла");
       fetch("/tasks.json")
         .then((response) => response.text())
         .then((data) => {
           // Сохранение загруженных данных задач в localStorage
           localStorage.setItem("tasksData", data);
 
-          this.parseTaskData(data)
-      })
-      .catch((error) => console.error("Ошибка при загрузке задач:", error));
+          this.parseTaskData(data);
+        })
+        .catch((error) => console.error("Ошибка при загрузке задач:", error));
     }
-    
   }
 
-  parseTaskData(tasksData:string){
-    console.log('Из localStorage')
-      const parsedTasks = JSON.parse(tasksData);
-      this.tasks = parsedTasks.map((taskData: any) =>
-        this.createTask(taskData)
-      );
+  setLocalStorage(tasks: Task[]) {
+    localStorage.setItem("tasksData", JSON.stringify(tasks));
   }
 
+  parseTaskData(tasksData: string) {
+    console.log("Из localStorage");
+    const parsedTasks = JSON.parse(tasksData);
+    this.tasks = parsedTasks.map((taskData: any) => this.createTask(taskData));
+  }
 
   // Метод создания объекта Task на основе данных
   createTask(taskData: any): Task {
@@ -106,32 +112,61 @@ class TaskStore {
     if (task) {
       task.toggleCompletion();
     }
-    this.updateParentsCompletion(id)
+    this.updateParentsCompletion(id);
   }
 
-  updateParentsCompletion (id:string){
-    let parent = this.findParent(id,this.tasks)
+  updateParentsCompletion(id: string) {
+    let parent = this.findParent(id, this.tasks);
     while (parent) {
-      parent.isComplete = parent?.subtasks.every(subtask => subtask.isComplete)
-      parent = this.findParent(parent.id, this.tasks)
+      parent.isComplete = parent?.subtasks.every(
+        (subtask) => subtask.isComplete
+      );
+      parent = this.findParent(parent.id, this.tasks);
     }
   }
 
+  deleteTask(id: string) {
+    let parent = this.findParent(id, this.tasks);
+    const taskContainer = parent ? parent.subtasks : this.tasks;
+    const deleteTaskIndex = taskContainer.findIndex((task) => task.id === id);
+    taskContainer.splice(deleteTaskIndex, 1);
 
+    console.log(taskContainer.findIndex((task) => task.id === id));
+  }
 
-  findParent(id:string,tasksToCheck:Task[]):Task|undefined{
+  addTask(newTask: Task, id?: string) {
+    if (id) {
+      const parent = this.findTaskById(id);
+      parent?.subtasks.push(newTask);
+    } else {
+      this.tasks.push(newTask);
+    }
+  }
+
+  editTask(id: string, title: string, description: string) {
+    const parent = this.findTaskById(id);
+    if (parent) {
+      parent.title = title;
+      parent.description = description;
+    }
+  }
+
+  setSelectedTask(id: string) {
+    this.selectedTask = this.findTaskById(id) ?? null;
+  }
+
+  findParent(id: string, tasksToCheck: Task[]): Task | undefined {
     for (let task of tasksToCheck) {
-      if(task.subtasks?.some(subtask => subtask.id===id)){
-          return task
+      if (task.subtasks?.some((subtask) => subtask.id === id)) {
+        return task;
       }
-  
-      const result = this.findParent(id, task.subtasks)
-      if(result) {
-          return result
+
+      const result = this.findParent(id, task.subtasks);
+      if (result) {
+        return result;
       }
     }
-    
-  };
+  }
 
   // Метод поиска задачи по уникальному идентификатору в списке задач и их подзадачах
   findTaskById(id: string): Task | null {

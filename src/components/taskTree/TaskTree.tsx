@@ -1,11 +1,12 @@
-import { FC } from "react";
 import { observer } from "mobx-react-lite";
 import TaskStore from "../taskStore/TaskStore";
 import TaskItem from "../taskItem/TaskItem";
+import ModalAdd from "../modal/Modal";
 
-const TaskTree: FC = observer(() => {
+const TaskTree = observer(() => {
   return (
     <div>
+      <ModalAdd iconButton={true} />
       <ul>
         {TaskStore.tasks.map((task) => (
           <TaskItem key={task.id} task={task} />

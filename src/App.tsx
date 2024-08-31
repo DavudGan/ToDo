@@ -1,19 +1,21 @@
-// src/App.tsx
-import React from "react";
 import TaskTree from "./components/taskTree/TaskTree";
 import TaskDetails from "./components/taskDetails/TaskDetails";
-import "./App.css";
+import "./App.scss";
 
 function App() {
   return (
     <div className="App">
-      <h1>Task Manager</h1>
+      <h1>Менеджер задач</h1>
       <div className="content">
-        <TaskTree />
-        <TaskDetails />
+        <div className="task-tree">
+          <TaskTree />
+        </div>
+        <div className="task-details">
+          <TaskDetails />
+        </div>
       </div>
     </div>
   );
-};
+}
 
 export default App;
