@@ -1,50 +1,40 @@
-# React + TypeScript + Vite
+# Проектная работа: ToDo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[Макет проекта (примерный)](https://www.figma.com/file/9ptzO19xMujbgo0YVG6KTB/%D1%82%D0%B5%D1%81%D1%82?type=design&node-id=0-1&t=SQIDI8pmIiJsGxfe-0)
 
-Currently, two official plugins are available:
+## Запускаем проект
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Выполните команду для подгрузки всех зависимостей:
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+npm install
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. Запускаем проект в dev режиме:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
 ```
+npm run dev
+```
+
+### Функциональные требования
+
+- Реализовать отображение списка задач в виде дерева. Если у задачи есть подзадачи, то они должны находиться под этой задачей с небольшим сдвигом вправо.
+
+- При клике на задачу справа должен отображаться ее полный текст.
+- Для любой задачи можно создавать подзадачи (и для любой подзадачи тоже, бесконечная вложенность).
+- Список подзадач должен быть сворачиваемым.
+- Слева от каждой задачи должен быть чекбокс. При его нажатии должна выделяться сама задача и все ее подзадачи.
+- При выделении всех подзадач также выделяется родительская задача.
+- Возможность удаления задач.
+- Возможность редактирования заголовка/текста задачи.
+- Хранение данных в localStorage.
+
+### Стек
+
+- React
+- TypeScript
+- Mobx (использовать современный подход `makeAutoObservable`).  
+  ! Основная логика должна быть в сторах, минимально использовать хуки.
+- Scss
+- MUI
+- Nanoid
