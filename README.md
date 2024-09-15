@@ -34,7 +34,6 @@ npm run dev
 - React
 - TypeScript
 - Mobx (использовать современный подход `makeAutoObservable`).  
-  ! Основная логика должна быть в сторах, минимально использовать хуки.
 - Scss
 - MUI
 - Nanoid
